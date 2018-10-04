@@ -1,7 +1,5 @@
 .tankContainer {
     position: relative;
-    width: 1vw;
-    height: 1vh;
 }
 .tank {
     position: absolute;
@@ -23,7 +21,6 @@
     /* transform: rotate(45deg); */
     border-left: 30px solid transparent;
     border-right: 10px solid transparent;
-       
 }
 .tankTower {
     width: 30px;
