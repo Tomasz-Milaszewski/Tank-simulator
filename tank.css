@@ -1,0 +1,33 @@
+.tankContainer {
+    position: relative;
+    width: 1vw;
+    height: 1vh;
+}
+.tank {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 40px;
+    background: grey;
+    /* transform: rotate(45deg); */
+}
+.towerCannon {
+    position: absolute;
+    box-sizing: border-box;
+    width: 60px;
+    height: 6px;
+    background: black;
+    background-clip: content-box;
+    /* transform: rotate(45deg); */
+    border-left: 30px solid transparent;
+    border-right: 10px solid transparent;
+       
+}
+.tankTower {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: red;
+}
