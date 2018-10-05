@@ -32,3 +32,11 @@
     border-radius: 50%;
     background: red;
 }
+.loadingBar {
+    width: 60px;
+    height: 20px;
+    box-sizing: border-box;
+    background: white;
+    outline: 1px solid black;
+    border-left: 0.01px solid green;
+}
