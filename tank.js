@@ -68,7 +68,7 @@ var time = 10;
 setInterval(function () {
     var tankAngleDegree = getDegree(tank);
     var tankAngleRadians = tankAngleDegree * (Math.PI / 180);
-    cannonRotationMouse();
+    
     
     if (tankAngleDegree <= 90 && tankAngleDegree >= -90) {
         if (isWPressed && leftOffset >= -5 && topOffset >= 10) {
@@ -131,4 +131,4 @@ setInterval(function () {
     }
 }, time)
 
-
+cannonRotationMouse();

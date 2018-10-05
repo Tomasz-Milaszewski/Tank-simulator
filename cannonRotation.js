@@ -21,12 +21,26 @@
 //     })
 // }
 
+var rCounter = 0;
+function cannonControlManager() {
+    window.addEventListener('keydown', function (event) {
+        if (event.code === 'KeyR') {
+            console.log('r pressed');
+            rCounter === 0 ? rCounter +=1 : rCounter = 0;
+            console.log(rCounter);
+        }
+    })
+}
+cannonControlManager();
+
 function cannonRotationMouse() {
+    
     document.addEventListener("mousemove", function (event) {
-        myFunction(event);
+        if (rCounter === 1) {return;}
+        calculatesRotation(event);
     });
 
-    function myFunction(e) {
+    function calculatesRotation(e) {
         var x = e.clientX;
         var y = e.clientY;
 
