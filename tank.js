@@ -71,33 +71,46 @@ var topOffset = 0;
 var rotationDegree = 0;
 var time = 100;
 
-getDegree(tank);
-var tankDegree = getDegree(tank) + 'deg';
-console.log(tankDegree);
+setInterval(function () {
+    var tankAngleDegree = getDegree(tank);
+    var tankAngleRadians = tankAngleDegree * (Math.PI / 180) + 'deg';
 
-// setInterval(function () {
-//     var tankAngle = getDegree(tank);
-//     var tankDegree = tankAngle + 'deg';
-
-//     if (tankAngle >= 90 && tankAngle <= 90) {
-//         if (isWPressed && leftOffset >= -60) {
-//             velocity = tankVelocity;
-//             leftOffset = leftOffset + (tankVelocity * time)*Math.cos(tankDegree);
-//             basket.style.left = leftOffset + 'px'
-//         }
-
-
-
-//     }
-
-    
-//     //right move includes limiting condition for wider basket - limitation from the right
-//     if (isRightArrowPressed && leftOffset <= 449 && (leftOffset + basket.getBoundingClientRect().width) < 500) {
-//         velocity = basketVelocity;
-//         leftOffset = leftOffset + basketVelocity * basketTime;
-//         basket.style.left = leftOffset + 'px'
-//     } else {
-//         velocity = 0;
-//     }
-// }, time)
+    if (tankAngleDegree <= 90 && tankAngleDegree >= -90) {
+        if (isWPressed && leftOffset >= -60 && topOffset >= 0) {
+            velocity = tankVelocity;
+            leftOffset = leftOffset + (tankVelocity * time) * Math.cos(tankAngleRadians);
+            tank.style.left = leftOffset + 'px'
+            topOffset = topOffset + (tankVelocity * time) * Math.sin(tankAngleRadians);
+            tank.style.top = topOffset + 'px'
+        }
+        if (isSPressed && leftOffset >= -60 && topOffset >= 0) {
+            velocity = tankVelocity;
+            leftOffset = leftOffset - (tankVelocity * time) * Math.cos(tankAngleRadians);
+            tank.style.left = leftOffset + 'px'
+            topOffset = topOffset - (tankVelocity * time) * Math.sin(tankAngleRadians);
+            tank.style.top = topOffset + 'px'
+        } else {
+            tankVelocity = 0;
+        }
+    } else {
+        if (tankAngleDegree > 90 || tankAngleDegree < -90) {
+            if (isSPressed && leftOffset >= -60 && topOffset >= 0) {
+                velocity = tankVelocity;
+                leftOffset = leftOffset + (tankVelocity * time) * Math.cos(tankAngleRadians);
+                tank.style.left = leftOffset + 'px'
+                topOffset = topOffset + (tankVelocity * time) * Math.sin(tankAngleRadians);
+                tank.style.top = topOffset + 'px'
+            }
+            if (isWPressed && leftOffset >= -60 && topOffset >= 0) {
+                velocity = tankVelocity;
+                leftOffset = leftOffset - (tankVelocity * time) * Math.cos(tankAngleRadians);
+                tank.style.left = leftOffset + 'px'
+                topOffset = topOffset - (tankVelocity * time) * Math.sin(tankAngleRadians);
+                tank.style.top = topOffset + 'px'
+            } else {
+                tankVelocity = 0;
+            }
+        }
+    }
+}, time)
 
