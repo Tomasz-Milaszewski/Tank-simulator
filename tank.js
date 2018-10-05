@@ -12,105 +12,107 @@ tank.appendChild(tankTower);
 app.appendChild(tank);
 
 //tank movement
-// console.log(tank.getBoundingClientRect());
-// console.log(tank.getBoundingClientRect().top);
-// console.log(tank.getBoundingClientRect().right);
-// console.log(tank.getBoundingClientRect().bottom);
-// console.log(tank.getBoundingClientRect().left);
 
-window.addEventListener('keydown', function (event) {
-    if (event.code === 'LeftArrow') {
-        isWPressed = true
-        console.log('true');
-    }
-})
-window.addEventListener('keyup', function () {
-    if (event.code === 'W') {
-        isWPressed = false;
-    }
-})
-window.addEventListener('keydown', function (event) {
-    if (event.code === 'S') {
-        isSPressed = true;
-    }
-})
-window.addEventListener('keyup', function () {
-    if (event.code === 'S') {
-        isSPressed = false;
-    }
-})
-window.addEventListener('keydown', function (event) {
-    if (event.code === 'A') {
-        isAPressed = true;
-    }
-})
-window.addEventListener('keyup', function () {
-    if (event.code === 'A') {
-        isAPressed = false;
-    }
-})
-window.addEventListener('keydown', function (event) {
-    if (event.code === 'D') {
-        isDPressed = true;
-    }
-})
-window.addEventListener('keyup', function () {
-    if (event.code === 'D') {
-        isDPressed = false;
-    }
-})
+    var isWPressed = false;
+    var isSPressed = false;
+    var isAPressed = false;
+    var isDPressed = false;
+       
+    window.addEventListener('keydown', function (event) {
+        if (event.code === 'KeyW') {
+            isWPressed = true;
+        }
+    })
+    window.addEventListener('keyup', function () {
+        if (event.code === 'KeyW') {
+            isWPressed = false;
+        }
+    })
+    window.addEventListener('keydown', function (event) {
+        if (event.code === 'KeyS') {
+            isSPressed = true;
+        }
+    })
+    window.addEventListener('keyup', function () {
+        if (event.code === 'KeyS') {
+            isSPressed = false;
+        }
+    })
+    window.addEventListener('keydown', function (event) {
+        if (event.code === 'KeyA') {
+            isAPressed = true;
+        }
+    })
+    window.addEventListener('keyup', function () {
+        if (event.code === 'KeyA') {
+            isAPressed = false;
+        }
+    })
+    window.addEventListener('keydown', function (event) {
+        if (event.code === 'KeyD') {
+            isDPressed = true;
+        }
+    })
+    window.addEventListener('keyup', function () {
+        if (event.code === 'KeyD') {
+            isDPressed = false;
+        }
+    })
 
-const tankVelocity = 0.1;
-const tankRotationVelocity = 0.1;
-var isWPressed = false;
-var isSPressed = false;
-var isAPressed = false;
-var isDPressed = false;
+var tankVelocity = 0.01;
+var tankRotationVelocity = 0.01;
 var leftOffset = 0;
 var topOffset = 0;
 var rotationDegree = 0;
-var time = 100;
+var time = 10;
 
 setInterval(function () {
     var tankAngleDegree = getDegree(tank);
-    var tankAngleRadians = tankAngleDegree * (Math.PI / 180) + 'deg';
+    console.log(tankAngleDegree);
+    var tankAngleRadians = tankAngleDegree * (Math.PI / 180);
+    console.log(tankAngleRadians);
 
     if (tankAngleDegree <= 90 && tankAngleDegree >= -90) {
-        if (isWPressed && leftOffset >= -60 && topOffset >= 0) {
+        console.log(leftOffset);
+        console.log(topOffset);
+        if (isWPressed && leftOffset >= -65 && topOffset >= 0) {
+            console.log('true');
             velocity = tankVelocity;
-            leftOffset = leftOffset + (tankVelocity * time) * Math.cos(tankAngleRadians);
+            console.log(velocity);
+            leftOffset = leftOffset + (velocity * time) * Math.cos(tankAngleRadians);
             tank.style.left = leftOffset + 'px'
-            topOffset = topOffset + (tankVelocity * time) * Math.sin(tankAngleRadians);
+            topOffset = topOffset + (velocity * time) * Math.sin(tankAngleRadians);
             tank.style.top = topOffset + 'px'
         }
         if (isSPressed && leftOffset >= -60 && topOffset >= 0) {
             velocity = tankVelocity;
-            leftOffset = leftOffset - (tankVelocity * time) * Math.cos(tankAngleRadians);
+            leftOffset = leftOffset - (velocity * time) * Math.cos(tankAngleRadians);
             tank.style.left = leftOffset + 'px'
-            topOffset = topOffset - (tankVelocity * time) * Math.sin(tankAngleRadians);
+            topOffset = topOffset - (velocity * time) * Math.sin(tankAngleRadians);
             tank.style.top = topOffset + 'px'
         } else {
-            tankVelocity = 0;
+            velocity = 0;
         }
     } else {
         if (tankAngleDegree > 90 || tankAngleDegree < -90) {
             if (isSPressed && leftOffset >= -60 && topOffset >= 0) {
                 velocity = tankVelocity;
-                leftOffset = leftOffset + (tankVelocity * time) * Math.cos(tankAngleRadians);
+                leftOffset = leftOffset + (velocity * time) * Math.cos(tankAngleRadians);
                 tank.style.left = leftOffset + 'px'
-                topOffset = topOffset + (tankVelocity * time) * Math.sin(tankAngleRadians);
+                topOffset = topOffset + (velocity * time) * Math.sin(tankAngleRadians);
                 tank.style.top = topOffset + 'px'
             }
             if (isWPressed && leftOffset >= -60 && topOffset >= 0) {
                 velocity = tankVelocity;
-                leftOffset = leftOffset - (tankVelocity * time) * Math.cos(tankAngleRadians);
+                leftOffset = leftOffset - (velocity * time) * Math.cos(tankAngleRadians);
                 tank.style.left = leftOffset + 'px'
-                topOffset = topOffset - (tankVelocity * time) * Math.sin(tankAngleRadians);
+                topOffset = topOffset - (velocity * time) * Math.sin(tankAngleRadians);
                 tank.style.top = topOffset + 'px'
             } else {
-                tankVelocity = 0;
+                velocity = 0;
             }
         }
     }
 }, time)
+
 
