@@ -59,10 +59,10 @@ app.appendChild(tank);
         }
     })
 
-var tankVelocity = 0.01;
-var tankRotationVelocity = 0.1;
-var leftOffset = 30;
-var topOffset = 30;
+var tankVelocity = 0.05;
+var tankRotationVelocity = 0.06;
+var leftOffset = 100;
+var topOffset = 100;
 var time = 10;
 
 setInterval(function () {
