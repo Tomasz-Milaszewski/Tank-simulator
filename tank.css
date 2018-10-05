@@ -13,7 +13,7 @@
     background: grey;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
-    transform: rotate(0deg);
+    transform: rotate(-45deg);
 }
 .towerCannon {
     position: absolute;
@@ -24,7 +24,7 @@
     background-clip: content-box;
     border-left: 30px solid transparent;
     border-right: 10px solid transparent;
-    transform: rotate(0deg);
+    transform: rotate(-135deg);
 }
 .tankTower {
     width: 30px;
