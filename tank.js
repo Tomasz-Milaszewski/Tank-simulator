@@ -18,19 +18,6 @@ app.appendChild(tank);
 // console.log(tank.getBoundingClientRect().bottom);
 // console.log(tank.getBoundingClientRect().left);
 
-const tankVelocity = 0.1;
-const tankRotationVelocity = 0.1;
-var isWPressed = false;
-var isSPressed = false;
-var isAPressed = false;
-var isDPressed = false;
-var leftOffset = 0;
-var topOffset = 0;
-var rotationDegree = 0;
-var time = 10;
-
-getDegree(tank);
-
 window.addEventListener('keydown', function (event) {
     if (event.code === 'LeftArrow') {
         isWPressed = true
@@ -72,6 +59,19 @@ window.addEventListener('keyup', function () {
         isDPressed = false;
     }
 })
+
+const tankVelocity = 0.1;
+const tankRotationVelocity = 0.1;
+var isWPressed = false;
+var isSPressed = false;
+var isAPressed = false;
+var isDPressed = false;
+var leftOffset = 0;
+var topOffset = 0;
+var rotationDegree = 0;
+var time = 10;
+
+getDegree(tank);
 
 // setInterval(function () {
 //     if (letsPlayLock) { return; }

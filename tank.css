@@ -9,9 +9,11 @@
     width: 60px;
     height: 40px;
     background: grey;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
     top: 50px;
     left: 50px;
-    transform: rotate(45deg);
+    transform: rotate(0deg);
 }
 .towerCannon {
     position: absolute;
