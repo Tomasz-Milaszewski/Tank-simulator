@@ -9,5 +9,5 @@ function getDegree(item) {
     var b = values[1];
     
     var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
-    console.log(angle);
+    return angle;
 }

@@ -69,17 +69,28 @@ var isDPressed = false;
 var leftOffset = 0;
 var topOffset = 0;
 var rotationDegree = 0;
-var time = 10;
+var time = 100;
 
 getDegree(tank);
+var tankDegree = getDegree(tank) + 'deg';
+console.log(tankDegree);
 
 // setInterval(function () {
-//     if (letsPlayLock) { return; }
-//     if (isLeftArrowPressed && leftOffset >= 1) {
-//         velocity = basketVelocity;
-//         leftOffset = leftOffset - basketVelocity * basketTime;
-//         basket.style.left = leftOffset + 'px'
+//     var tankAngle = getDegree(tank);
+//     var tankDegree = tankAngle + 'deg';
+
+//     if (tankAngle >= 90 && tankAngle <= 90) {
+//         if (isWPressed && leftOffset >= -60) {
+//             velocity = tankVelocity;
+//             leftOffset = leftOffset + (tankVelocity * time)*Math.cos(tankDegree);
+//             basket.style.left = leftOffset + 'px'
+//         }
+
+
+
 //     }
+
+    
 //     //right move includes limiting condition for wider basket - limitation from the right
 //     if (isRightArrowPressed && leftOffset <= 449 && (leftOffset + basket.getBoundingClientRect().width) < 500) {
 //         velocity = basketVelocity;
@@ -88,6 +99,5 @@ getDegree(tank);
 //     } else {
 //         velocity = 0;
 //     }
-//     PageTransitionEvent
-// }, basketTime)
+// }, time)
 
