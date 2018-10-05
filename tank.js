@@ -61,8 +61,8 @@ app.appendChild(tank);
 
 var tankVelocity = 0.01;
 var tankRotationVelocity = 0.1;
-var leftOffset = 0;
-var topOffset = 0;
+var leftOffset = 30;
+var topOffset = 30;
 var time = 10;
 
 setInterval(function () {
@@ -74,7 +74,7 @@ setInterval(function () {
     if (tankAngleDegree <= 90 && tankAngleDegree >= -90) {
         // console.log(leftOffset);
         // console.log(topOffset);
-        if (isWPressed && leftOffset >= -5 && topOffset >= -5) {
+        if (isWPressed && leftOffset >= -35 && topOffset >= -35) {
             var velocity = tankVelocity;
             leftOffset = leftOffset + (velocity * time) * Math.cos(tankAngleRadians);
             tank.style.left = leftOffset + 'px'
@@ -103,21 +103,32 @@ setInterval(function () {
         }
     } else {
         if (tankAngleDegree > 90 || tankAngleDegree < -90) {
-            if (isSPressed && leftOffset >= -60 && topOffset >= 0) {
+            if (isWPressed && leftOffset >= -35 && topOffset >= -35) {
                 velocity = tankVelocity;
                 leftOffset = leftOffset + (velocity * time) * Math.cos(tankAngleRadians);
                 tank.style.left = leftOffset + 'px'
                 topOffset = topOffset + (velocity * time) * Math.sin(tankAngleRadians);
                 tank.style.top = topOffset + 'px'
             }
-            if (isWPressed && leftOffset >= -60 && topOffset >= 0) {
+            if (isSPressed && leftOffset >= -5 && topOffset >= -5) {
                 velocity = tankVelocity;
                 leftOffset = leftOffset - (velocity * time) * Math.cos(tankAngleRadians);
                 tank.style.left = leftOffset + 'px'
                 topOffset = topOffset - (velocity * time) * Math.sin(tankAngleRadians);
                 tank.style.top = topOffset + 'px'
+            } 
+            if (isAPressed && leftOffset >= -35 && topOffset >= -35) {
+                var rotationVelocity = tankRotationVelocity;
+                tankAngleDegree = tankAngleDegree - (rotationVelocity * time);
+                tank.style.transform = 'rotate(' + tankAngleDegree + 'deg)';
+            }
+            if (isDPressed && leftOffset >= -35 && topOffset >= -35) {
+                var rotationVelocity = tankRotationVelocity;
+                tankAngleDegree = tankAngleDegree + (rotationVelocity * time);
+                tank.style.transform = 'rotate(' + tankAngleDegree + 'deg)';
             } else {
                 velocity = 0;
+                rotationVelocity = 0;
             }
         }
     }
