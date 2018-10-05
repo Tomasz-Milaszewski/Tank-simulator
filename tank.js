@@ -132,3 +132,4 @@ setInterval(function () {
 }, time)
 
 cannonRotationMouse();
+cannonRotationKeys();

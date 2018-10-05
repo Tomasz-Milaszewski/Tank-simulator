@@ -1,26 +1,3 @@
-// function cannonRotationKeys() {
-//     window.addEventListener('keydown', function (event) {
-//         if (event.code === 'KeyQ') {
-//             isQPressed = true;
-//         }
-//     })
-//     window.addEventListener('keyup', function () {
-//         if (event.code === 'KeyQ') {
-//             isQPressed = false;
-//         }
-//     })
-//     window.addEventListener('keydown', function (event) {
-//         if (event.code === 'KeyE') {
-//             isEPressed = true;
-//         }
-//     })
-//     window.addEventListener('keyup', function () {
-//         if (event.code === 'KeyE') {
-//             isEPressed = false;
-//         }
-//     })
-// }
-
 var rCounter = 0;
 function cannonControlManager() {
     window.addEventListener('keydown', function (event) {
@@ -34,8 +11,7 @@ function cannonControlManager() {
 cannonControlManager();
 
 function cannonRotationMouse() {
-    
-    document.addEventListener("mousemove", function (event) {
+        document.addEventListener("mousemove", function (event) {
         if (rCounter === 1) {return;}
         calculatesRotation(event);
     });
@@ -63,6 +39,36 @@ function cannonRotationMouse() {
             cannon.style.transform = 'rotate(' + cannonAngleDegrees + 'deg)';
         }
     }
+}
+
+var isQPressed = false;
+var isEPressed = false;
+
+function cannonRotationKeys() {
+    window.addEventListener('keydown', function (event) {
+        if (rCounter === 0) {return;}
+        if (event.code === 'KeyQ') {
+            isQPressed = true;
+        }
+    })
+    window.addEventListener('keyup', function () {
+        if (rCounter === 0) {return;}
+        if (event.code === 'KeyQ') {
+            isQPressed = false;
+        }
+    })
+    window.addEventListener('keydown', function (event) {
+        if (rCounter === 0) {return;}
+        if (event.code === 'KeyE') {
+            isEPressed = true;
+        }
+    })
+    window.addEventListener('keyup', function () {
+        if (rCounter === 0) {return;}
+        if (event.code === 'KeyE') {
+            isEPressed = false;
+        }
+    })
 }
 
 
