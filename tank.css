@@ -33,10 +33,13 @@
     background: red;
 }
 .loadingBar {
-    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
     height: 20px;
     box-sizing: border-box;
     background: white;
-    outline: 1px solid black;
-    border-left: 0.01px solid green;
+    border: 1px solid green;
+    font-size: 14px;
 }

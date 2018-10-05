@@ -2,7 +2,7 @@ var spaceCounter = 0;
 
 function cannonBullet() {
     console.log('cannonBullet welcome');
-    document.addEventListener("keyDown", function (event) {
+    document.addEventListener("keydown", function (event) {
         if (event.code === 'Space') {
             console.log('space pressed');
             if (spaceCounter % 2 === 0) {
