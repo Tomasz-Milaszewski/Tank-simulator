@@ -9,7 +9,9 @@
     width: 60px;
     height: 40px;
     background: grey;
-    /* transform: rotate(45deg); */
+    top: 50px;
+    left: 50px;
+    transform: rotate(45deg);
 }
 .towerCannon {
     position: absolute;
@@ -18,7 +20,6 @@
     height: 6px;
     background: black;
     background-clip: content-box;
-    /* transform: rotate(45deg); */
     border-left: 30px solid transparent;
     border-right: 10px solid transparent;
 }
