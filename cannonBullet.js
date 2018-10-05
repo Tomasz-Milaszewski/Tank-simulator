@@ -3,7 +3,7 @@ var spaceCounter = 0;
 function cannonBullet() {
     document.addEventListener("keydown", function (event) {
         if (event.code === 'Space') {
-            if (spaceCounter % 2 === 0 && bulletShot === true) {
+            if (spaceCounter % 2 === 0) {
                 bulletLoading();
                 spaceCounter += 1;
                 console.log(spaceCounter);
@@ -60,9 +60,9 @@ function shot() {
     //bullet movement
     var bulletVelocity = 0.1;
     var bulletTime = 10;
-    var topOffset = getPosition(bullet)[0];
-    var leftOffset = getPosition(bullet)[1];
-    var cannonAngleDegree = getDegree(tank);
+    var topOffset = getPosition(bullet)[0]; //px
+    var leftOffset = getPosition(bullet)[1]; // px
+    var cannonAngleDegree = getDegree(cannon);
     var cannonAngleRadians = cannonAngleDegree * (Math.PI / 180);
 
     shootingInterval = setInterval(function () {
@@ -88,5 +88,6 @@ function shot() {
     setTimeout(function () {
         clearInterval(shootingInterval);
         bulletShot = true;
+        bullet.style.display = 'none';
     }, 3000);
 }
