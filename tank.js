@@ -68,10 +68,9 @@ var time = 10;
 // setInterval(function () {
 //     var tankAngleDegree = getDegree(tank);
 //     var tankAngleRadians = tankAngleDegree * (Math.PI / 180);
-    
+//     cannonRotation();
+
 //     if (tankAngleDegree <= 90 && tankAngleDegree >= -90) {
-//         console.log(leftOffset);
-//         console.log(topOffset);
 //         if (isWPressed && leftOffset >= -5 && topOffset >= 10) {
 //             var velocity = tankVelocity;
 //             leftOffset = leftOffset + (velocity * time) * Math.cos(tankAngleRadians);
@@ -101,8 +100,6 @@ var time = 10;
 //         }
 //     } else {
 //         if (tankAngleDegree > 90 || tankAngleDegree < -90) {
-//             console.log(leftOffset);
-//             console.log(topOffset);
 //             if (isWPressed && leftOffset >= 0 && topOffset >= 10) {
 //                 velocity = tankVelocity;
 //                 leftOffset = leftOffset + (velocity * time) * Math.cos(tankAngleRadians);
