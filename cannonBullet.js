@@ -3,7 +3,7 @@ var spaceCounter = 0;
 function cannonBullet() {
     document.addEventListener("keydown", function (event) {
         if (event.code === 'Space') {
-            if (spaceCounter % 2 === 0) {
+            if (spaceCounter % 2 === 0 && bulletShot === true) {
                 bulletLoading();
                 spaceCounter += 1;
                 console.log(spaceCounter);
@@ -15,6 +15,7 @@ cannonBullet();
 
 var loadingInterval;
 var bulletLoaded = false;
+var bulletShot = false;
 
 function bulletLoading() {
     var loadingBar = document.createElement('div');
@@ -57,15 +58,35 @@ function shot() {
     loadingBar.style.display = 'none';
 
     //bullet movement
-    // var canonAngleDegree = getDegree(tank);
-    // var canonAngleRadians = canonAngleDegree * (Math.PI / 180);
+    var bulletVelocity = 0.1;
+    var bulletTime = 10;
+    var topOffset = getPosition(bullet)[0];
+    var leftOffset = getPosition(bullet)[1];
+    var cannonAngleDegree = getDegree(tank);
+    var cannonAngleRadians = cannonAngleDegree * (Math.PI / 180);
 
-    // loadingInterval = setInterval(function () {
-    //     leftBorderThickness += 2;
-    //     loadingBar.style.borderLeftWidth = leftBorderThickness + 'px';
-    // }, 50);
-    // setTimeout(function () {
-    //     clearInterval(loadingInterval);
-    //     bulletLoaded = true;
-    // }, 3000);
+    shootingInterval = setInterval(function () {
+        
+        if (cannonAngleDegree <= 90 && cannonAngleDegree >= -90) {
+            var velocity = bulletVelocity;
+            leftOffset = leftOffset + (velocity * bulletTime) * Math.cos(cannonAngleRadians);
+            bullet.style.left = leftOffset + 'px'
+            topOffset = topOffset + (velocity * bulletTime) * Math.sin(cannonAngleRadians);
+            bullet.style.top = topOffset + 'px'
+        } else {
+            if (cannonAngleDegree > 90 || cannonAngleDegree < -90) {
+            var velocity = bulletVelocity;
+            leftOffset = leftOffset + (velocity * bulletTime) * Math.cos(cannonAngleRadians);
+            bullet.style.left = leftOffset + 'px'
+            topOffset = topOffset + (velocity * bulletTime) * Math.sin(cannonAngleRadians);
+            bullet.style.top = topOffset + 'px'
+            } else {
+            bulletVelocity = 0;
+            }
+        }
+    }, bulletTime);
+    setTimeout(function () {
+        clearInterval(shootingInterval);
+        bulletShot = true;
+    }, 3000);
 }
