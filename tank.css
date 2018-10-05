@@ -42,3 +42,10 @@
     background: white;
     border: 1px solid green;
 }
+.bullet {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: orange;
+}
