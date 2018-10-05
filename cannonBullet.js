@@ -6,6 +6,7 @@ function cannonBullet() {
             if (spaceCounter % 2 === 0) {
                 bulletLoading();
                 spaceCounter += 1;
+                console.log(spaceCounter);
             }
         }
     });
@@ -37,6 +38,7 @@ function trigger() {
             if (spaceCounter % 2 !== 0 && bulletLoaded === true) {
                 shot();
                 spaceCounter = 0;
+                console.log(spaceCounter);
             } else {return;}
         }
     })

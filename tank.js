@@ -64,7 +64,7 @@ var tankRotationVelocity = 0.06;
 var leftOffset = 100;
 var topOffset = 100;
 var time = 10;
-
+getPosition(tank);
 setInterval(function () {
     var tankAngleDegree = getDegree(tank);
     var tankAngleRadians = tankAngleDegree * (Math.PI / 180);
