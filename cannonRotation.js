@@ -2,17 +2,15 @@ var rCounter = 0;
 function cannonControlManager() {
     window.addEventListener('keydown', function (event) {
         if (event.code === 'KeyR') {
-            console.log('r pressed');
-            rCounter === 0 ? rCounter +=1 : rCounter = 0;
-            console.log(rCounter);
+            rCounter === 0 ? rCounter += 1 : rCounter = 0;
         }
     })
 }
 cannonControlManager();
 
 function cannonRotationMouse() {
-        document.addEventListener("mousemove", function (event) {
-        if (rCounter === 1) {return;}
+    document.addEventListener("mousemove", function (event) {
+        if (rCounter === 1) { return; }
         calculatesRotation(event);
     });
 
@@ -46,29 +44,48 @@ var isEPressed = false;
 
 function cannonRotationKeys() {
     window.addEventListener('keydown', function (event) {
-        if (rCounter === 0) {return;}
+        if (rCounter === 0) { return; }
         if (event.code === 'KeyQ') {
             isQPressed = true;
         }
     })
     window.addEventListener('keyup', function () {
-        if (rCounter === 0) {return;}
+        if (rCounter === 0) { return; }
         if (event.code === 'KeyQ') {
             isQPressed = false;
         }
     })
     window.addEventListener('keydown', function (event) {
-        if (rCounter === 0) {return;}
+        if (rCounter === 0) { return; }
         if (event.code === 'KeyE') {
             isEPressed = true;
         }
     })
     window.addEventListener('keyup', function () {
-        if (rCounter === 0) {return;}
+        if (rCounter === 0) { return; }
         if (event.code === 'KeyE') {
             isEPressed = false;
         }
     })
+
+    var cannonTime = 10;
+    
+    setInterval(function () {
+        var cannon = document.querySelector('.towerCannon');
+        var cannonRotationVelocity = 0.06;
+        var cannonAngleDegree = getDegree(cannon);
+
+        if (isQPressed) {
+            cannonAngleDegree = cannonAngleDegree - (cannonRotationVelocity * cannonTime);
+            cannon.style.transform = 'rotate(' + cannonAngleDegree + 'deg)';
+        }
+        if (isEPressed) {
+            cannonAngleDegree = cannonAngleDegree + (cannonRotationVelocity * cannonTime);
+            cannon.style.transform = 'rotate(' + cannonAngleDegree + 'deg)';
+        } else {
+            cannonRotationVelocity = 0;
+        }
+    }, cannonTime)
 }
 
 
