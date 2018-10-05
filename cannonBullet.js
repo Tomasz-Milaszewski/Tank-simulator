@@ -60,26 +60,36 @@ function shot() {
     //bullet movement
     var bulletVelocity = 0.1;
     var bulletTime = 10;
-    var topOffset = getPosition(bullet)[0]; //px
-    var leftOffset = getPosition(bullet)[1]; // px
+    var topOffset = getPosition(bullet)[0];
+    var leftOffset = getPosition(bullet)[1];
     var cannonAngleDegree = getDegree(cannon);
     var cannonAngleRadians = cannonAngleDegree * (Math.PI / 180);
-
-    shootingInterval = setInterval(function () {
         
+    shootingInterval = setInterval(function () {
+
         if (cannonAngleDegree <= 90 && cannonAngleDegree >= -90) {
             var velocity = bulletVelocity;
+            // console.log(leftOffset);
+            // console.log(topOffset);
             leftOffset = leftOffset + (velocity * bulletTime) * Math.cos(cannonAngleRadians);
-            bullet.style.left = leftOffset + 'px'
+            // console.log(leftOffset);
+            bullet.style.left = leftOffset + 'px';
+            
+            // var bulletProperties = window.getComputedStyle(bullet);
+            // var bulletLeft = bulletProperties.getPropertyValue("left");
+            // console.log(bulletLeft);
+
             topOffset = topOffset + (velocity * bulletTime) * Math.sin(cannonAngleRadians);
-            bullet.style.top = topOffset + 'px'
+            bullet.style.top = topOffset + 'px';
         } else {
             if (cannonAngleDegree > 90 || cannonAngleDegree < -90) {
             var velocity = bulletVelocity;
+            // console.log(leftOffset);
+            // console.log(topOffset);
             leftOffset = leftOffset + (velocity * bulletTime) * Math.cos(cannonAngleRadians);
-            bullet.style.left = leftOffset + 'px'
+            bullet.style.left = leftOffset + 'px';
             topOffset = topOffset + (velocity * bulletTime) * Math.sin(cannonAngleRadians);
-            bullet.style.top = topOffset + 'px'
+            bullet.style.top = topOffset + 'px';
             } else {
             bulletVelocity = 0;
             }

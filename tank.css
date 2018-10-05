@@ -44,6 +44,7 @@
 }
 .bullet {
     position: absolute;
+    top: 0px;
     left: 17px;
     width: 6px;
     height: 6px;
