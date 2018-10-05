@@ -58,7 +58,7 @@ app.appendChild(tank);
             isDPressed = false;
         }
     })
-
+    
 var tankVelocity = 0.05;
 var tankRotationVelocity = 0.06;
 var leftOffset = 100;

@@ -1,4 +1,51 @@
 function cannonRotation() {
+    if (cannonControl()) {
+        cannonRotationKeys();
+    } else {
+        cannonRotationMouse();
+    }
+}
+
+var rCounter = 0;
+function cannonControl() {
+    window.addEventListener('keydown', function (event) {
+        switch (event.code) {
+            case "KeyR":
+                if (rCounter % 2 === 0) {
+                    rCounter += 1;
+                    return true;
+                } else {
+                    rCounter = 0;
+                    return false;
+                }
+        };
+    });
+};
+
+function cannonRotationKeys() {
+    window.addEventListener('keydown', function (event) {
+        if (event.code === 'KeyQ') {
+            isQPressed = true;
+        }
+    })
+    window.addEventListener('keyup', function () {
+        if (event.code === 'KeyQ') {
+            isQPressed = false;
+        }
+    })
+    window.addEventListener('keydown', function (event) {
+        if (event.code === 'KeyE') {
+            isEPressed = true;
+        }
+    })
+    window.addEventListener('keyup', function () {
+        if (event.code === 'KeyE') {
+            isEPressed = false;
+        }
+    })
+}
+
+function cannonRotationMouse() {
     document.addEventListener("mousemove", function(event) {
         myFunction(event);
     });
@@ -27,4 +74,5 @@ function cannonRotation() {
         }
     }
 }
-cannonRotation();
+
+
