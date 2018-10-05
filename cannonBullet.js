@@ -1,16 +1,11 @@
 var spaceCounter = 0;
 
 function cannonBullet() {
-    console.log('cannonBullet welcome');
     document.addEventListener("keydown", function (event) {
         if (event.code === 'Space') {
-            console.log('space pressed');
             if (spaceCounter % 2 === 0) {
-                console.log('spaceCounter even');
                 bulletLoading();
-                console.log(spaceCounter);
                 spaceCounter +=1;
-                console.log(spaceCounter);
             }
         }
     });
@@ -21,15 +16,14 @@ var loadingInterval;
 function bulletLoading() {
     var loadingBar = document.createElement('div');
     loadingBar.classList.add('loadingBar');
-    loadingBar.innerText = 'Bullet loading';
     app.appendChild(loadingBar);
 
+    var leftBorderThickness = 0;
     loadingInterval = setInterval(function() {
-        var leftBorderThickness = 0;
-        leftBorderThickness += 1;
+        leftBorderThickness += 2;
         loadingBar.style.borderLeftWidth = leftBorderThickness + 'px';
     }, 50);
     setTimeout(function () {
-        clearInterval(loadingInterval)
+        clearInterval(loadingInterval);
     }, 3000);
 }
