@@ -68,23 +68,21 @@ var time = 10;
 
 setInterval(function () {
     var tankAngleDegree = getDegree(tank);
-    console.log(tankAngleDegree);
+    // console.log(tankAngleDegree);
     var tankAngleRadians = tankAngleDegree * (Math.PI / 180);
-    console.log(tankAngleRadians);
+    // console.log(tankAngleRadians);
 
     if (tankAngleDegree <= 90 && tankAngleDegree >= -90) {
         console.log(leftOffset);
         console.log(topOffset);
-        if (isWPressed && leftOffset >= -65 && topOffset >= 0) {
-            console.log('true');
+        if (isWPressed && leftOffset >= -5 && topOffset >= -5) {
             velocity = tankVelocity;
-            console.log(velocity);
             leftOffset = leftOffset + (velocity * time) * Math.cos(tankAngleRadians);
             tank.style.left = leftOffset + 'px'
             topOffset = topOffset + (velocity * time) * Math.sin(tankAngleRadians);
             tank.style.top = topOffset + 'px'
         }
-        if (isSPressed && leftOffset >= -60 && topOffset >= 0) {
+        if (isSPressed && leftOffset >= 0 && topOffset >= 0) {
             velocity = tankVelocity;
             leftOffset = leftOffset - (velocity * time) * Math.cos(tankAngleRadians);
             tank.style.left = leftOffset + 'px'
