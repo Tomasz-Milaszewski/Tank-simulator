@@ -41,6 +41,7 @@ function trigger() {
         }
     })
 }
+trigger();
 
 function shot() {
     //bullet creation
@@ -48,6 +49,10 @@ function shot() {
     var bullet = document.createElement('div');
     bullet.classList.add('bullet');
     cannon.appendChild(bullet);
+    
+    //clearing loadingBar
+    var loadingBar = document.querySelector('.loadingBar');
+    loadingBar.style.display = 'none';
 
     //bullet movement
     // var canonAngleDegree = getDegree(tank);
