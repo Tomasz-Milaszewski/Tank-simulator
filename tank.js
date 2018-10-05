@@ -67,21 +67,19 @@ var time = 10;
 
 setInterval(function () {
     var tankAngleDegree = getDegree(tank);
-    // console.log(tankAngleDegree);
     var tankAngleRadians = tankAngleDegree * (Math.PI / 180);
-    // console.log(tankAngleRadians);
-
+    
     if (tankAngleDegree <= 90 && tankAngleDegree >= -90) {
-        // console.log(leftOffset);
-        // console.log(topOffset);
-        if (isWPressed && leftOffset >= -35 && topOffset >= -35) {
+        console.log(leftOffset);
+        console.log(topOffset);
+        if (isWPressed && leftOffset >= -5 && topOffset >= 10) {
             var velocity = tankVelocity;
             leftOffset = leftOffset + (velocity * time) * Math.cos(tankAngleRadians);
             tank.style.left = leftOffset + 'px'
             topOffset = topOffset + (velocity * time) * Math.sin(tankAngleRadians);
             tank.style.top = topOffset + 'px'
         }
-        if (isSPressed && leftOffset >= 0 && topOffset >= 0) {
+        if (isSPressed && leftOffset >= 0 && topOffset >= 5) {
             var velocity = tankVelocity;
             leftOffset = leftOffset - (velocity * time) * Math.cos(tankAngleRadians);
             tank.style.left = leftOffset + 'px'
@@ -103,14 +101,16 @@ setInterval(function () {
         }
     } else {
         if (tankAngleDegree > 90 || tankAngleDegree < -90) {
-            if (isWPressed && leftOffset >= -35 && topOffset >= -35) {
+            console.log(leftOffset);
+            console.log(topOffset);
+            if (isWPressed && leftOffset >= 0 && topOffset >= 10) {
                 velocity = tankVelocity;
                 leftOffset = leftOffset + (velocity * time) * Math.cos(tankAngleRadians);
                 tank.style.left = leftOffset + 'px'
                 topOffset = topOffset + (velocity * time) * Math.sin(tankAngleRadians);
                 tank.style.top = topOffset + 'px'
             }
-            if (isSPressed && leftOffset >= -5 && topOffset >= -5) {
+            if (isSPressed && leftOffset >= -5 && topOffset >= 5) {
                 velocity = tankVelocity;
                 leftOffset = leftOffset - (velocity * time) * Math.cos(tankAngleRadians);
                 tank.style.left = leftOffset + 'px'
