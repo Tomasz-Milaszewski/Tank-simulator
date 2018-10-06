@@ -24,7 +24,7 @@
     background-clip: content-box;
     border-left: 30px solid transparent;
     border-right: 10px solid transparent;
-    transform: rotate(-45deg);
+    transform: rotate(45deg);
 }
 .tankTower {
     width: 30px;
@@ -43,7 +43,7 @@
     border: 1px solid green;
 }
 .bullet {
-    position: absolute;
+    position: relative;
     top: 0px;
     left: 17px;
     width: 6px;

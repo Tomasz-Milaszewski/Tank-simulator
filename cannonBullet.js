@@ -58,44 +58,39 @@ function shot() {
     loadingBar.style.display = 'none';
 
     //bullet movement
-    var bulletVelocity = 0.1;
-    var bulletTime = 10;
-    var topOffset = getPosition(bullet)[0];
-    var leftOffset = getPosition(bullet)[1];
-    const cannonAngleDegreeStart = getDegree(cannon);
-    const cannonAngleRadiansStart = cannonAngleDegreeStart * (Math.PI / 180);
-    var cannonAngleDegree = getDegree(cannon);
-    var cannonAngleRadians = cannonAngleDegree * (Math.PI / 180);    
+    // var bulletVelocity = 0.1;
+    // var bulletTime = 10;
+    // var topOffset = getPosition(bullet)[0];
+    // var leftOffset = getPosition(bullet)[1];
+    // const cannonAngleDegreeStart = getDegree(cannon);
+    // const cannonAngleRadiansStart = cannonAngleDegreeStart * (Math.PI / 180);
 
     shootingInterval = setInterval(function () {
-
-        if (cannonAngleDegreeStart <= 90 && cannonAngleDegreeStart >= -90) {
-            var velocity = bulletVelocity;
-            // console.log(leftOffset);
-            // console.log(topOffset);
-            leftOffset = leftOffset + (velocity * bulletTime) * Math.cos(cannonAngleRadiansStart - cannonAngleRadians);
-            // console.log(leftOffset);
-            bullet.style.left = leftOffset + 'px';
+        // var cannonAngleDegree = getDegree(cannon);
+        // var cannonAngleRadians = cannonAngleDegree * (Math.PI / 180);   
+        
+        // if (cannonAngleDegreeStart <= 90 && cannonAngleDegreeStart >= -90) {
+        //     var velocity = bulletVelocity;
+        //     console.log(cannonAngleDegreeStart);
             
-            // var bulletProperties = window.getComputedStyle(bullet);
-            // var bulletLeft = bulletProperties.getPropertyValue("left");
-            // console.log(bulletLeft);
-
-            topOffset = topOffset + (velocity * bulletTime) * Math.sin(cannonAngleRadiansStart - cannonAngleRadians);
-            bullet.style.top = topOffset + 'px';
-        } else {
-            if (cannonAngleDegree > 90 || cannonAngleDegree < -90) {
-            var velocity = bulletVelocity;
-            // console.log(leftOffset);
-            // console.log(topOffset);
-            leftOffset = leftOffset + (velocity * bulletTime) * Math.cos(cannonAngleRadians);
-            bullet.style.left = leftOffset + 'px';
-            topOffset = topOffset + (velocity * bulletTime) * Math.sin(cannonAngleRadians);
-            bullet.style.top = topOffset + 'px';
-            } else {
-            bulletVelocity = 0;
-            }
-        }
+        //     leftOffset = leftOffset + (velocity * bulletTime) * Math.cos(cannonAngleRadiansStart);
+        //     console.log(leftOffset);
+        //     bullet.style.left = leftOffset + 'px';
+            
+        //     topOffset = topOffset + (velocity * bulletTime) * Math.sin(cannonAngleRadiansStart);
+        //     console.log(topOffset);
+        //     bullet.style.top = topOffset + 'px';
+        // } else {
+        //     if (cannonAngleDegree > 90 || cannonAngleDegree < -90) {
+        //     var velocity = bulletVelocity;
+        //     leftOffset = leftOffset + (velocity * bulletTime) * Math.cos(cannonAngleRadians);
+        //     bullet.style.left = leftOffset + 'px';
+        //     topOffset = topOffset + (velocity * bulletTime) * Math.sin(cannonAngleRadians);
+        //     bullet.style.top = topOffset + 'px';
+        //     } else {
+        //     bulletVelocity = 0;
+        //     }
+        // }
     }, bulletTime);
     setTimeout(function () {
         clearInterval(shootingInterval);
