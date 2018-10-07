@@ -1,7 +1,6 @@
 function getDegree(item) {
     var itemStyle = window.getComputedStyle(item);
     var transformMatrix = itemStyle.getPropertyValue("transform");
-    // console.log(transformMatrix);
 
     var values = transformMatrix.split('(')[1],
     values = values.split(')')[0],

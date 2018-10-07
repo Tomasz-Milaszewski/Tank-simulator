@@ -6,7 +6,6 @@ function cannonBullet() {
             if (spaceCounter % 2 === 0) {
                 bulletLoading();
                 spaceCounter += 1;
-                console.log(spaceCounter);
             }
         }
     });
@@ -15,7 +14,6 @@ cannonBullet();
 
 var loadingInterval;
 var bulletLoaded = false;
-// var bulletShot = false;
 
 function bulletLoading() {
     var loadingBar = document.createElement('div');
@@ -39,7 +37,6 @@ function trigger() {
             if (spaceCounter % 2 !== 0 && bulletLoaded === true) {
                 shot();
                 spaceCounter = 0;
-                console.log(spaceCounter);
                 bulletLoaded = false;
             } else {return;}
         }
@@ -92,7 +89,6 @@ function shot() {
     }, bulletTime);
     setTimeout(function () {
         clearInterval(shootingInterval);
-        // bulletShot = true;
         bullet.style.display = 'none';
     }, 3000);
 }
