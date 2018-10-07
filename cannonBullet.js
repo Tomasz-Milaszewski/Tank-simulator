@@ -15,7 +15,7 @@ cannonBullet();
 
 var loadingInterval;
 var bulletLoaded = false;
-var bulletShot = false;
+// var bulletShot = false;
 
 function bulletLoading() {
     var loadingBar = document.createElement('div');
@@ -40,6 +40,7 @@ function trigger() {
                 shot();
                 spaceCounter = 0;
                 console.log(spaceCounter);
+                bulletLoaded = false;
             } else {return;}
         }
     })
@@ -91,7 +92,7 @@ function shot() {
     }, bulletTime);
     setTimeout(function () {
         clearInterval(shootingInterval);
-        bulletShot = true;
+        // bulletShot = true;
         bullet.style.display = 'none';
     }, 3000);
 }
