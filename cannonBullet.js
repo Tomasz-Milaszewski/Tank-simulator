@@ -39,7 +39,7 @@ function trigger() {
             if (spaceCounter % 2 !== 0 && bulletLoaded === true) {
                 shot();
                 spaceCounter = 0;
-                console.log(spaceCounter);
+                // console.log(spaceCounter);
             } else {return;}
         }
     })
@@ -48,10 +48,12 @@ trigger();
 
 function shot() {
     //bullet creation
-    var cannon = document.querySelector('.towerCannon');
+    const app = document.querySelector('.tankContainer');
     var bullet = document.createElement('div');
     bullet.classList.add('bullet');
-    cannon.appendChild(bullet);
+    bullet.style.left = setBulletPosition()[0] + 'px';
+    bullet.style.top = setBulletPosition()[1] + 'px';
+    app.appendChild(bullet);
     
     //clearing loadingBar
     var loadingBar = document.querySelector('.loadingBar');
@@ -59,7 +61,7 @@ function shot() {
 
     //bullet movement
     // var bulletVelocity = 0.1;
-    // var bulletTime = 10;
+    var bulletTime = 10;
     // var topOffset = getPosition(bullet)[0];
     // var leftOffset = getPosition(bullet)[1];
     // const cannonAngleDegreeStart = getDegree(cannon);

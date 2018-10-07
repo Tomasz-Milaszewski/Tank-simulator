@@ -11,6 +11,8 @@ tankTower.classList.add('tankTower');
 tank.appendChild(tankTower);
 app.appendChild(tank);
 
+console.log(setBulletPosition());
+
 //tank movement
 
     var isWPressed = false;

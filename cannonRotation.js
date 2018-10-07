@@ -20,7 +20,6 @@ function cannonRotationMouse() {
 
         var cannon = document.querySelector('.towerCannon');
         var cannonCenterX = (cannon.getBoundingClientRect().left + cannon.getBoundingClientRect().right) / 2;
-
         var cannonCenterY = (cannon.getBoundingClientRect().top + cannon.getBoundingClientRect().bottom) / 2;
         var deltaX = x - cannonCenterX;
         var deltaY = y - cannonCenterY;
